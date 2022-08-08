@@ -26,7 +26,7 @@ jobs:
 
       - name: Build deps
         run: |
-           apt -y install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
+           apt -y install g++ 
            apt install libvirglrenderer-dev -y && apt install mesa-common-dev -y && apt install libspice-client-gtk-3.0-dev -y && apt install libepoxy-dev -y && apt install libgbm-dev -y && apt install libdrm-dev -y && apt install libsdl2-2.0-0 -y && apt install python3-sdl2 -y && apt install libpng-dev -y && apt install libjpeg-dev -y && apt install libssl-dev -y && apt install libspice-protocol-dev -y && apt install libspice-server-dev -y && apt install libfdt-dev -y && apt install libsdl2-dev -y && apt install libusb-dev -y && apt install libusb-1.0-0-dev -y && apt install build-essential -y && apt install libusbredirhost-dev -y && apt install libseccomp-dev -y && apt install libcap-ng-dev -y && apt install libaio-dev -y && apt install xz-utils -y && apt install wget -y && sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build -y && sudo apt-get install git-email -y
            sudo apt-get install libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev -y
            sudo apt-get install libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev -y
