@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        include:
-          - arch: aarch64
-            distro: ubuntu20.04
             os: [ubuntu-20.04]
 
     steps:
