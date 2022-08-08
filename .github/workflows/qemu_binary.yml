@@ -17,7 +17,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download qemu source
-        shell: bash {0}
+        shell: bash
+        env: CI=false
         run: |
           sudo bash
           curl -o qemu-7.1.0-rc1.tar.xz https://download.qemu.org/qemu-7.1.0-rc1.tar.xz
