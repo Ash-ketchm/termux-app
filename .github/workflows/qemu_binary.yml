@@ -21,9 +21,9 @@ jobs:
         run: |
           sudo bash
           curl -o qemu-7.1.0-rc1.tar.xz https://download.qemu.org/qemu-7.1.0-rc1.tar.xz
-          mkdir -p /root/qemu 
-          tar -xf qemu-7.1.0-rc1.tar.xz -C /root/qemu
-          cd /root/qemu
+          sudo mkdir -p /root/qemu 
+          sudo tar -xf qemu-7.1.0-rc1.tar.xz -C /root/qemu
+          sudo cd /root/qemu
 
       - name: Build deps
         continue-on-error: true
@@ -50,7 +50,7 @@ jobs:
        
       - name: Build source
         run: |
-          cd /root/qemu
+          sudo cd /root/qemu
           mkdir b
           cd b
           mkdir ~/seccond_prefix
