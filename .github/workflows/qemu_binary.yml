@@ -14,9 +14,10 @@ jobs:
 
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2.1.0
+        uses: actions/checkout@v2
+
       - uses: uraimo/run-on-arch-action@v2
-        name: Run commands
+        name: Run commands h
         id: runcmd
         with:
           arch: aarch64
