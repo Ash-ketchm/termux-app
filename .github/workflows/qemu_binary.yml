@@ -12,6 +12,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+      - uses: actions/cache@v2
+        with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+            ${{ runner.os }}-pip-
+
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
@@ -21,8 +28,9 @@ jobs:
         run: |
           sudo bash
           curl -o qemu-7.1.0-rc1.tar.xz https://download.qemu.org/qemu-7.1.0-rc1.tar.xz
-          tar -xf qemu-7.1.0-rc1.tar.xz
-          cd qemu-7.1.0-rc1
+          mkdir -p /root/qemu 
+          tar -xf qemu-7.1.0-rc1.tar.xz -C /root/qemu
+          cd /root/qemu
 
       - name: Build deps
         continue-on-error: true
@@ -49,6 +57,7 @@ jobs:
        
       - name: Build source
         run: |
+          cd /root/qemu
           mkdir b
           cd b
           mkdir ~/seccond_prefix
