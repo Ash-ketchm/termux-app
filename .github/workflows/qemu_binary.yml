@@ -22,7 +22,7 @@ jobs:
           sudo bash
           curl -o qemu-7.1.0-rc1.tar.xz https://download.qemu.org/qemu-7.1.0-rc1.tar.xz
           tar -xvf qemu-7.1.0-rc1.tar.xz
-          cd qemu-7.1.0-rc1.tar.xz
+          cd qemu-7.1.0-rc1
 
       - name: Build deps
         run: |
