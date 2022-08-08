@@ -16,6 +16,7 @@ jobs:
         include:
           - arch: aarch64
             distro: ubuntu20.04
+            os: [ubuntu-20.04]
 
     steps:
       - name: Clone repository
