@@ -49,6 +49,7 @@ jobs:
            sudo apt install -y $PKG5
            sudo apt install -y $PKG6
            sudo apt install gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu -y
+           sudo apt-get install -y pkg-config-aarch64-linux-gnu
            pkg-config libjpeg-dev libssl-dev libspice-protocol-dev libspice-server-dev
        
       - name: Build source
