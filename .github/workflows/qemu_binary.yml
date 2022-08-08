@@ -54,7 +54,7 @@ jobs:
           mkdir b
           cd b
           mkdir ~/seccond_prefix
-          ../configure --cross-prefix=aarch64-linux-gnu --prefix=~/seccond_prefix --target-list=i386-softmmu,x86_64-softmmu,arm-softmmu,aarch64-softmmu --enable-guest-agent --enable-vnc --enable-vnc-jpeg --enable-kvm --enable-spice --enable-sdl --enable-virglrenderer --enable-opengl --enable-libusb --enable-usb-redir --enable-gtk --enable-modules --enable-debug --enable-debug-tcg --enable-sanitizers --enable-plugins
+          ../configure --cross-prefix=aarch64-linux-gnu- --prefix=~/seccond_prefix --target-list=i386-softmmu,x86_64-softmmu,arm-softmmu,aarch64-softmmu --enable-guest-agent --enable-vnc --enable-vnc-jpeg --enable-kvm --enable-spice --enable-sdl --enable-virglrenderer --enable-opengl --enable-libusb --enable-usb-redir --enable-gtk --enable-modules --enable-debug --enable-debug-tcg --enable-sanitizers --enable-plugins
           make -j6
           sudo make install
 
