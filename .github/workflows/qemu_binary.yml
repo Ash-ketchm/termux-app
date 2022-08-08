@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch-action@v2
         name: Run commands h
         id: runcmd
