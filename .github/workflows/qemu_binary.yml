@@ -10,16 +10,23 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        include:
+          - arch: aarch64
+            distro: ubuntu20.04
 
     steps:
-      - uses: uraimo/run-on-arch-action@v2
-        name: Run commands h
-        id: runcmd
-        with:
-          arch: aarch64
-          distro: ubuntu20.04
+      - name: Clone repository
+        uses: actions/checkout@v2.1.0
 
+      - name: Download qemu source
+        shell: bash
+        run: | 
+            bash 
+
+      - name: Build deps
         continue-on-error: true
         run: |
            export PKG="libvirglrenderer-dev  mesa-common-dev libspice-client-gtk-3.0-dev"
@@ -42,6 +49,9 @@ jobs:
            sudo apt install -y $PKG6
            sudo apt install gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu -y
            pkg-config libjpeg-dev libssl-dev libspice-protocol-dev libspice-server-dev
+       
+      - name: Build source
+        run: |
           mkdir -p ~/qemu
           cd ~/qemu
           curl -o qemu-7.1.0-rc1.tar.xz https://download.qemu.org/qemu-7.1.0-rc1.tar.xz
@@ -50,9 +60,12 @@ jobs:
           mkdir b
           cd b
           mkdir ~/seccond_prefix
-          ../configure --prefix=~/seccond_prefix --target-list=i386-softmmu,x86_64-softmmu,arm-softmmu,aarch64-softmmu --enable-guest-agent --enable-vnc --enable-vnc-jpeg --enable-kvm --enable-spice --enable-sdl --enable-virglrenderer --enable-opengl --enable-libusb --enable-usb-redir --enable-gtk --enable-modules --enable-debug --enable-debug-tcg --enable-sanitizers --enable-plugins
+          ../configure --cross-prefix=aarch64-linux-gnu- --prefix=~/seccond_prefix --target-list=i386-softmmu,x86_64-softmmu,arm-softmmu,aarch64-softmmu --enable-guest-agent --enable-vnc --enable-vnc-jpeg --enable-kvm --enable-spice --enable-sdl --enable-virglrenderer --enable-opengl --enable-libusb --enable-usb-redir --enable-gtk --enable-modules --enable-debug --enable-debug-tcg --enable-sanitizers --enable-plugins
           make -j6
           sudo make install
+
+
+      - name: Upload
         uses: actions/upload-artifact@v2
         with:
           name: qemu_source
