@@ -25,6 +25,7 @@ jobs:
           cd qemu-7.1.0-rc1
 
       - name: Build deps
+        continue-on-error: true
         run: |
            export PKG="libvirglrenderer-dev  mesa-common-dev libspice-client-gtk-3.0-dev"
            export PKG0="libepoxy-dev libgbm-dev libdrm-dev libsdl2-2.0-0 python3-sdl2 libpng-dev libjpeg-dev"
