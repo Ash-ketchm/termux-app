@@ -9,11 +9,11 @@ on:
       - master
 
 jobs:
-  build:
-    strategy:
-      matrix:
-            os: [ubuntu-latest, [self-hosted, linux, ARM64]]
-         runs-on: ${{ matrix.os }} 
+  Arm64_build:
+    strategy: 
+      matrix: 
+        os: [ubuntu-latest, [self-hosted, linux, ARM64]] 
+    runs-on: ${{ matrix.os }} 
 
     steps:
       - name: Clone repository
