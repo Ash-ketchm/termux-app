@@ -11,8 +11,8 @@ on:
 jobs:
   Arm64_build:
     strategy: 
-      matrix: 
-        os: [ubuntu-latest, [self-hosted, linux, ARM64]] 
+      matrix:
+        os:  [self-hosted, linux, ARM64]
     runs-on: ${{ matrix.os }} 
 
     steps:
