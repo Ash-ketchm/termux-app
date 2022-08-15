@@ -11,3 +11,4 @@ for APP in api boot styling tasker widget; do
 	cp ../app/src/main/res/drawable-anydpi-v26/ic_launcher.xml \
 		$APPDIR/app/src/main/res/drawable-anydpi-v26/$file.xml
 done
+#
